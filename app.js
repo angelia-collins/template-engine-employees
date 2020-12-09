@@ -37,45 +37,46 @@ questions = () =>
       message: 'Which role?',
       choices: ['Intern', 'Manager', 'Engineer'],
     },
+    {
+      type: 'input',
+      name: 'school',
+      message: 'Intern School?',
+      when: (answers) => answers.role === "Intern"
+    },
+    {
+      type: 'input',
+      name: 'officeNumber',
+      message: 'Managers Office Number?',
+      when: (answers) => answers.role === "Manager"
+    },
+    {
+      type: 'input',
+      name: 'github',
+      message: 'Github username?',
+      when: (answers) => answers.role === "Engineer"
+    }
   ])
     .then((answers) => {
       console.log(JSON.stringify(answers, null, '  '));
-      return answers;
+      switch (answers.role) {
+        case 'Intern':
+          const intern = new Intern(answers.name, answers.id,answers.email, answers.school)
+          break;
+        case 'Manager':
+          const manager = new Manager(answers.name, answers.id,answers.email, answers.officeNumber)
+          break;
+        case 'Engineer':
+          const engineer = new Engineer(answers.name, answers.id,answers.email, answers.github)
+          break;
+        default:
+          console.log(`None of the cases matched`);
+      }
+
+      
 
     })
 
 questions();
-
-roleQuestions = () =>
-    if (answers.role === 'Intern') {
-  inquirer.prompt([
-    {
-      type: 'input',
-      name: 'school',
-      message: 'School?',
-    },
-  ])
-}
-
-  if (answers.role === 'Manager') {
-    inquirer.prompt([
-      {
-        type: 'input',
-        name: 'officeNumber',
-        message: 'Office Number?',
-      },
-    ])
-  }
-
-  if (answers.role === 'Engineer') {
-    inquirer.prompt([
-      {
-        type: 'input',
-        name: 'github',
-        message: 'Github username?',
-      },
-    ])
-  }
 
 
 // After the user has input all employees desired, call the `render` function (required
