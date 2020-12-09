@@ -14,41 +14,68 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 // const 
-getName = () =>
+questions = () =>
   inquirer.prompt([
     {
       type: 'input',
       name: 'name',
       message: 'Employee name?',
     },
-//     {
-//       type: 'input',
-//       name: 'role',
-//       message: 'Employee role?',
-//     },
-//     {
-//       type: 'input',
-//       name: 'id',
-//       message: 'Employee ID?',
-//     },
-//     {
-//       type: 'input',
-//       name: 'email',
-//       message: 'Employee email?',
-//     },
-//     {
-//       type: 'input',
-//       name: 'github',
-//       message: 'Employee github?',
-//     },
-  ]) 
+    {
+      type: 'input',
+      name: 'id',
+      message: 'Employee ID?',
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'Employee email?',
+    },
+    {
+      type: 'list',
+      name: 'role',
+      message: 'Which role?',
+      choices: ['Intern', 'Manager', 'Engineer'],
+    },
+  ])
     .then((answers) => {
       console.log(JSON.stringify(answers, null, '  '));
       return answers;
 
-    });
+    })
 
-getName();
+questions();
+
+roleQuestions = () =>
+    if (answers.role === 'Intern') {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'school',
+      message: 'School?',
+    },
+  ])
+}
+
+  if (answers.role === 'Manager') {
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'officeNumber',
+        message: 'Office Number?',
+      },
+    ])
+  }
+
+  if (answers.role === 'Engineer') {
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'github',
+        message: 'Github username?',
+      },
+    ])
+  }
 
 
 // After the user has input all employees desired, call the `render` function (required
