@@ -13,7 +13,7 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-// const 
+
 questions = () =>
   inquirer.prompt([
     {
@@ -60,13 +60,16 @@ questions = () =>
       console.log(JSON.stringify(answers, null, '  '));
       switch (answers.role) {
         case 'Intern':
-          const intern = new Intern(answers.name, answers.id,answers.email, answers.school)
+          const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+          console.log(intern);
           break;
         case 'Manager':
-          const manager = new Manager(answers.name, answers.id,answers.email, answers.officeNumber)
+          const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+          console.log(manager);
           break;
         case 'Engineer':
-          const engineer = new Engineer(answers.name, answers.id,answers.email, answers.github)
+          const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+          console.log(engineer);
           break;
         default:
           console.log(`None of the cases matched`);
@@ -88,10 +91,6 @@ questions();
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
 
 // HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
 // and Intern classes should all extend from a class named Employee; see the directions
