@@ -73,13 +73,31 @@ questions = () =>
           break;
         default:
           console.log(`None of the cases matched`);
-      }
 
+          let everyone = "hello";
+          console.log(everyone);
+        }
+      
+          // let everyone = [];
+          // let everyone = [intern, manager, engineer];
+
+          // const team = async () => {
+            // everyone = await questions();
+          // everyone.push(Intern, Manager, Engineer);
+          // console.log(everyone);
+
+          // team();
+          // fs.writeFile(render());
+          // console.log('html made.');
+          //  }
+         
+        
       
 
     })
 
 questions();
+
 
 
 // After the user has input all employees desired, call the `render` function (required
