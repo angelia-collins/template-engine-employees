@@ -3,6 +3,7 @@
 ## Description
 Add employees to a webpage.
 [A Video](https://drive.google.com/file/d/1ajS9ABUSxUFHV_hNES06gNY_qp-Hqmzq/view)
+![Screenshot](/screenshot.png)
 
 ## Table of Contents
 * [Installation](#Installation)
