@@ -10,6 +10,9 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+let everyone = [];
+
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -61,32 +64,28 @@ questions = () =>
       switch (answers.role) {
         case 'Intern':
           const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-          console.log(intern);
+          everyone.push(intern);
+          console.log(everyone);
           break;
         case 'Manager':
           const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-          console.log(manager);
+          everyone.push(manager);
+          console.log(everyone);
           break;
         case 'Engineer':
           const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-          console.log(engineer);
+          everyone.push(engineer);
+          console.log(everyone);
           break;
         default:
           console.log(`None of the cases matched`);
-
-          let everyone = "hello";
-          console.log(everyone);
         }
       
-          // let everyone = [];
-          // let everyone = [intern, manager, engineer];
 
-          // const team = async () => {
-            // everyone = await questions();
-          // everyone.push(Intern, Manager, Engineer);
-          // console.log(everyone);
 
-          // team();
+
+
+
           // fs.writeFile(render());
           // console.log('html made.');
           //  }
