@@ -57,7 +57,13 @@ questions = () =>
       name: 'github',
       message: 'Github username?',
       when: (answers) => answers.role === "Engineer"
-    }
+    },
+    {
+      type: 'list',
+      name: 'again',
+      message: 'Add another employee?',
+      choices: ['Yes', 'No']
+  } 
   ])
     .then((answers) => {
       console.log(JSON.stringify(answers, null, '  '));
@@ -80,7 +86,9 @@ questions = () =>
         default:
           console.log(`None of the cases matched`);
         }
-      
+        if (answers.again === "Yes") {
+          questions();
+      }
 
 
 
